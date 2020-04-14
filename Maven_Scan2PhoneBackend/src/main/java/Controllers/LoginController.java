@@ -18,6 +18,9 @@ public class LoginController {
     private JSONObject account;
     private LoginView loginView;
     
+    //https://mongodb.github.io/mongo-java-driver/4.0/driver/getting-started/quick-start/
+    
+    
     
     MongoClient mongoClient = MongoClients.create(
         "mongodb+srv://Revengers:Scan2Phone@scan2phone-db-9rmmz.mongodb.net/test?retryWrites=true&w=majority");
