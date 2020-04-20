@@ -60,7 +60,7 @@ public class AddCardView extends JFrame{
         submit = new JButton("Submit Card");
         
         submit.addActionListener(event -> controller.addCardJSON(scanField.getText(), typeField.getText(), numberField.getText()));
-        
+        cancel.addActionListener(event -> controller.cancel());
         
         
         //whole panel content pane

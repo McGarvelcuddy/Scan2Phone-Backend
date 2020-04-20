@@ -2,34 +2,16 @@ package Controllers;
 
 import Views.LoginView;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import com.mongodb.client.MongoClient;
-
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
-import com.mongodb.Block;
-import com.mongodb.client.MongoClients;
 import com.mongodb.*;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Projections;
-import com.mongodb.client.model.Filters;
-import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Projections.*;
-import com.mongodb.client.model.Sorts;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import java.util.Map;
-import org.apache.camel.component.mongodb.converters.MongoDbBasicConverters;
 import org.json.*;
 
 public class LoginController {
@@ -43,7 +25,7 @@ public class LoginController {
     MongoClient mongoClient = MongoClients.create(
             "mongodb+srv://Revengers:Scan2Phone@scan2phone-db-9rmmz.mongodb.net/test?retryWrites=true&w=majority");
     MongoDatabase database = mongoClient.getDatabase("Accounts");
-    MongoCollection<BasicDBObject> collection = database.getCollection("JSON-Accounts", BasicDBObject.class);
+    private MongoCollection<BasicDBObject> collection = database.getCollection("JSON-Accounts", BasicDBObject.class);
 
     public LoginController() {
         loginView = new LoginView(this);
@@ -78,7 +60,7 @@ public class LoginController {
 
     public void beginAddCard() {
         loginView.setVisible(false);
-        addCardController = new AddCardController(this, query, account);
+        addCardController = new AddCardController(this, query, account, collection);
 
     }
     
@@ -94,5 +76,9 @@ public class LoginController {
             return null;
         }
         return answer;
+    }
+    
+    public void cancel(){
+        loginView.setVisible(true);
     }
 }
