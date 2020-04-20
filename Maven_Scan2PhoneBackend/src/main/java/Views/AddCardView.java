@@ -2,6 +2,7 @@ package Views;
 
 import Controllers.AddCardController;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
 
 public class AddCardView extends JFrame{
     private AddCardController controller;
@@ -35,7 +37,7 @@ public class AddCardView extends JFrame{
     private void initComponents(){
         setTitle("Scan2Phone - Add A Card To Your Account");
         
-        setSize(1000, 500);
+        setSize(700, 300);
         
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,11 +59,21 @@ public class AddCardView extends JFrame{
         cancel = new JButton("Cancel");
         submit = new JButton("Submit Card");
         
+        submit.addActionListener(event -> controller.addCardJSON(scanField.getText(), typeField.getText(), numberField.getText()));
+        
+        
+        
+        //whole panel content pane
         this.setContentPane(new JPanel(new BorderLayout()));
         
         this.getContentPane().add(instructions, BorderLayout.NORTH);
         
+        //gridbag layout set inside a border
         JPanel gridPanel = new JPanel(new GridBagLayout());
+        gridPanel.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createEtchedBorder(
+                    EtchedBorder.RAISED, Color.GRAY
+                    , Color.DARK_GRAY), "Login"));
         
         GridBagConstraints con = new GridBagConstraints();
         
@@ -82,7 +94,6 @@ public class AddCardView extends JFrame{
         con.insets = (x == 0) ? WEST_INSETS : EAST_INSETS;
         con.weightx = (x == 0) ? 0.1 : 1.0;
         con.weighty = 1.0;
-        
         
         con.weightx = 1;
         con.gridx = 0;
@@ -112,17 +123,13 @@ public class AddCardView extends JFrame{
         con.gridx = 1;
         gridPanel.add(numberField, con);
         
-        
-        
-        
-        con.gridx = 3;
+        con.gridx = 0;
         con.gridy = 6;
         gridPanel.add(cancel, con);
         
-        con.gridx = 4;
+        con.gridx = 1;
         gridPanel.add(submit, con);
         
         this.getContentPane().add(gridPanel);
-        
     }
 }
