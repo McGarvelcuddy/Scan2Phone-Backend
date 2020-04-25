@@ -14,7 +14,9 @@
 JSONAccount.java
 ### Controllers
 LoginController.java
+
 AddCardController.java
+
 ### Views
 LoginView.java(controlled by LoginController)
 AddCardView.java(controlled by AddCardController)
