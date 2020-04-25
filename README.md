@@ -6,7 +6,7 @@
 
   Our vision for this project includes an app component on the phone which will store all of the cards the user would like as well as a separate Raspberry Pi Scanner system that can scan any magnetic stripe card and automatically load them into your phone app for the user to use! From this, the user can expand their virtual wallet from just credit/debit cards to other cards including library cards, student IDs and even hotel room card keys. We believe this will virtually eliminate the need for 15 cards in a wallet and allow the use of cards you may use everyday, to all be in one place on your phone. While we still recommend having some kind of access to the cards just in case, we believe this will make the user experience with cards of many kinds and wallets to be much simpler.
 
-### NOTE: Current application built using Netbeans IDE 8.2, using JDK 1.8
+### NOTE: Current application built using Netbeans IDE 8.2, Built using Maven, using JDK 1.8
 
 
 ## Class List
