@@ -10,8 +10,6 @@
 
 
 ## Class List
-### Data
-JSONAccount.java
 ### Controllers
 LoginController.java
 
@@ -19,9 +17,8 @@ AddCardController.java
 
 ### Views
 LoginView.java(controlled by LoginController)
+
 AddCardView.java(controlled by AddCardController)
-ConfirmationView.java(extra popup box for Yes/No confirm actions)
-WarningView.java(display for successful operation or failed operation)
 
 ## Function List: Backend
 
@@ -39,7 +36,3 @@ Converts the Array of Strings into a JSON object if all the required information
 Adds the newly created card JSON information to the larger JSON account object.
 #### updateAccount() - AddCardController.java
 Sends the updated account JSON object back to the database to update the entry.  Checks if the sending succeeds or not and displays the success status using warning() in the AddCardController class.
-#### choiceAction() - AddCardController.java
-Creates a popup to confirm the user wants to add this card.  If they indicate yes, create another popup asking if they want to add another card or log out. Logging out  returns control to the LoginController class and forgets user’s information.  Creating another card opens the card adding process over again.
-#### warning() - AddCardController.java
-Creates a WarningView object that informs the user if their card information was successfully sent to the database or not in the updateAccount() function. 
