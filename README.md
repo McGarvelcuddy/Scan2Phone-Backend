@@ -36,3 +36,6 @@ Converts the Array of Strings into a JSON object if all the required information
 Adds the newly created card JSON information to the larger JSON account object.
 #### updateAccount() - AddCardController.java
 Sends the updated account JSON object back to the database to update the entry.  Checks if the sending succeeds or not and displays the success status using warning() in the AddCardController class.
+
+
+###Application installers for Windows and Mac can be found int the /Installers folder
